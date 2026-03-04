@@ -60,3 +60,30 @@ MAPQX Calculator is a WordPress plugin that provides a map-based measurement and
 ## License
 
 “All rights reserved.”
+
+## [v5.0.0] - Major merge + unified UI (Latest)
+
+### Added
+- Unified sidebar layout across all tabs (map left, sidebar right with consistent controls/results/quote flow)
+- Full multi-tab suite:
+  - Turf (polygon area)
+  - Roofing (polygon footprint + pitch multiplier)
+  - Solar (polygon + PVWatts, if enabled)
+  - Length (polyline distance)
+  - Fence (line segments + gates)
+
+### Changed
+- Roofing workflow rebuilt:
+  - Removed elevation-line approach
+  - Added pitch-based roof surface area calculation:
+    - Actual Area = Footprint Area × √(1 + (pitch/12)²)
+  - Live display of footprint area, pitch multiplier, and roof surface area in the sidebar
+
+### Fence
+- Integrated fence line drawing with gate staging/placement
+- Gate pricing pulled from admin settings
+- Gate costs shown separately in results
+
+### Fixed
+- AJAX hook typo for non-logged-in users:
+  - Corrected wp_ajax_nopriv_... naming so quotes work for visitors
